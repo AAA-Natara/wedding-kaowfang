@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaowfang & Hernfah · 02.05.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600&family=Dancing+Script:wght@500;600;700&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Lato:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blue:    #A8C8E8;
+    --orange:  #F2B78B;
+    --pink:    #F0A0B0;
+    --lilac:   #C8B0D8;
+    --yellow:  #F5D890;
+    --mint:    #A8D8C0;
+    --cream:   #FDF8F2;
+    --soft-white: #FFFCF8;
+    --text:    #5a4a42;
+    --text-light: #9a8880;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Anuphan', sans-serif;
+    background: var(--soft-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── GLITTER ─── */
+  .glitter-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 24px;
+    background: linear-gradient(160deg, #fdf0f8 0%, #f0f5fd 30%, #fdf8ee 60%, #f0fdf7 100%);
+  }
+
+  .hero-circles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation: breathe ease-in-out infinite alternate;
+  }
+  @keyframes breathe {
+    from { transform: scale(1); }
+    to   { transform: scale(1.15); }
+  }
+
+  .dot-badge {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 32px;
+    animation: fadeUp 1s ease both;
+  }
+  .dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .hero-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(13px, 3vw, 16px);
+    color: var(--text-light);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-names-th {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: clamp(56px, 14vw, 100px);
+    line-height: 1.05;
+    text-align: center;
+    color: var(--text);
+    animation: fadeUp 1s 0.3s ease both;
+    position: relative;
+  }
+  .hero-names-th .amp {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 500;
+    color: var(--pink);
+    font-size: 0.6em;
+    display: block;
+    margin: -4px 0;
+  }
+
+  .hero-names-en {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(13px, 2.5vw, 16px);
+    color: var(--text-light);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 14px;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .hero-date {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: fadeUp 1s 0.5s ease both;
+  }
+  .date-line {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink), transparent);
+  }
+  .date-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: clamp(22px, 5vw, 34px);
+    color: var(--text);
+    letter-spacing: 0.2em;
+  }
+  .date-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-light);
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── PHOTO SECTION ─── */
+  .photo-section {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #fde0ee, #e0eeff, #fff5e0, #e0fff5);
+    box-shadow: 0 20px 60px rgba(180,140,130,0.15);
+  }
+  .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--text-light);
+  }
+  .photo-placeholder .icon { font-size: 48px; opacity: 0.5; }
+  .photo-placeholder p {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    opacity: 0.6;
+  }
+  .photo-frame-label {
+    position: absolute;
+    bottom: 24px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: white;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+    letter-spacing: 0.15em;
+  }
+
+  /* ─── COLOR PALETTE ─── */
+  .palette-section {
+    padding: 60px 24px;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .palette-dots {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .palette-dot {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .palette-dot:hover { transform: scale(1.15); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section {
+    padding: 80px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Anuphan', sans-serif;
+    font-weight: 500;
+    font-size: clamp(24px, 5vw, 34px);
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .divider-line { flex: 1; max-width: 80px; height: 1px; background: #e8d8d0; }
+  .divider-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pink); }
+
+  /* ─── COUNTDOWN ─── */
+  .countdown-section {
+    background: linear-gradient(135deg, #fdf0f8, #f0f5fd, #fff8ee);
+    border-radius: 32px;
+    padding: 60px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 680px;
+    margin: 0 auto 0;
+  }
+  .countdown-section::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--blue);
+    opacity: 0.2;
+    filter: blur(30px);
+  }
+  .countdown-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; left: -20px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: var(--yellow);
+    opacity: 0.25;
+    filter: blur(30px);
+  }
+  .countdown-big {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .countdown-days-num {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(72px, 20vw, 120px);
+    line-height: 1;
+    background: linear-gradient(135deg, var(--pink), var(--lilac), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .countdown-days-label {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-light);
+    letter-spacing: 0.2em;
+  }
+
+  /* ─── SCHEDULE ─── */
+  .schedule-card {
+    background: white;
+    border-radius: 24px;
+    padding: 36px 32px;
+    box-shadow: 0 4px 40px rgba(180, 140, 130, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .schedule-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--pink), var(--yellow), var(--mint), var(--lilac));
+  }
+
+  .schedule-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #f5ede8;
+    position: relative;
+  }
+  .schedule-row:last-child { border-bottom: none; }
+
+  .schedule-dot-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+  }
+  .schedule-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .schedule-line {
+    width: 1px; flex: 1; min-height: 30px;
+    background: linear-gradient(to bottom, #e8d0d0, transparent);
+    margin-top: 6px;
+  }
+
+  .schedule-time {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-light);
+    min-width: 70px;
+    padding-top: 2px;
+  }
+  .schedule-content { flex: 1; }
+  .schedule-title {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .schedule-desc {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ─── VENUE ─── */
+  .venue-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 40px rgba(180, 140, 130, 0.08);
+  }
+  .venue-map-placeholder {
+    height: 200px;
+    background: linear-gradient(135deg, #ddeeff, #ffe0ee, #fff5cc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .venue-map-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a0b0' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .venue-pin {
+    font-size: 52px;
+    filter: drop-shadow(0 4px 12px rgba(200,100,120,0.3));
+    animation: pinBounce 2s ease-in-out infinite;
+    position: relative; z-index: 1;
+  }
+  @keyframes pinBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .venue-info {
+    padding: 28px 28px 32px;
+  }
+  .venue-name-th {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .venue-name-en {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .venue-detail {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .venue-detail-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+  }
+  .venue-detail-row svg { flex-shrink: 0; opacity: 0.7; }
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--blue), var(--lilac));
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .map-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(168, 200, 232, 0.4);
+  }
+
+  /* ─── COUPLE SECTION ─── */
+  .couple-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .couple-card {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 4px 40px rgba(180, 140, 130, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .couple-card::after {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    opacity: 0.15;
+    filter: blur(20px);
+  }
+  .couple-card.bride::after { background: var(--pink); }
+  .couple-card.groom::after { background: var(--blue); }
+
+  .couple-avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+  }
+  .couple-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(var(--pink), var(--lilac), var(--blue), var(--pink));
+    z-index: -1;
+    opacity: 0.6;
+  }
+  .avatar-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: #f5eef0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .avatar-inner img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .avatar-upload-hint {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 9px;
+    color: var(--text-light);
+    gap: 2px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .couple-avatar:hover .avatar-upload-hint { opacity: 1; }
+  .avatar-upload-hint svg { width: 16px; height: 16px; }
+  input.avatar-file { display: none; }
+
+  .couple-info { flex: 1; }
+  .couple-nickname {
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .couple-fullname-th {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 1px;
+  }
+  .couple-fullname-en {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+  .couple-role {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 20px;
+    color: white;
+  }
+  .bride .couple-role { background: linear-gradient(135deg, var(--pink), var(--lilac)); }
+  .groom .couple-role { background: linear-gradient(135deg, var(--blue), var(--mint)); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 60px 24px 40px;
+    background: linear-gradient(to top, #fff5f8, transparent);
+  }
+  .footer-hearts {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+  .footer-text {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 6px;
+  }
+  .footer-date {
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.15em;
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 480px) {
+    .countdown-bubble { width: 68px; height: 68px; }
+    .countdown-num { font-size: 24px; }
+    .schedule-card { padding: 28px 20px; }
+    .couple-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<canvas class="glitter-canvas" id="glitter"></canvas>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-circles">
+    <div class="hero-circle" style="width:300px;height:300px;top:-80px;right:-60px;background:var(--blue);animation-duration:7s;"></div>
+    <div class="hero-circle" style="width:250px;height:250px;bottom:-60px;left:-40px;background:var(--yellow);animation-duration:9s;animation-delay:1s;"></div>
+    <div class="hero-circle" style="width:200px;height:200px;bottom:100px;right:50px;background:var(--pink);animation-duration:11s;animation-delay:2s;"></div>
+    <div class="hero-circle" style="width:150px;height:150px;top:150px;left:30px;background:var(--mint);animation-duration:8s;animation-delay:0.5s;"></div>
+  </div>
+
+  <p class="hero-subtitle">We're getting married</p>
+
+  <div class="hero-names-th">
+    Kaowfang
+    <span class="amp">&</span>
+    Hernfah
+  </div>
+
+  <p class="hero-names-en">Wachiraporn · Nantawut</p>
+
+  <div class="hero-date">
+    <div class="date-line"></div>
+    <p class="date-text">02.05.2026</p>
+    <p class="date-sub">Saturday, 2 May 2026</p>
+    <div class="date-line"></div>
+  </div>
+</div>
+
+<!-- ═══ PHOTO ═══ -->
+<div class="photo-section reveal">
+  <div class="photo-frame">
+    <div class="photo-placeholder">
+      <div class="icon">🌸</div>
+      <img src="https://worshipnight.life/event/KF.jpg" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="photo-frame-label">Kaowfang & Hernfah · 02.05.2026</div>
+  </div>
+</div>
+
+<!-- ═══ COUPLE ═══ -->
+<section style="padding-top:80px;" class="reveal">
+  <p class="section-label">The Happy Couple</p>
+  <h2 class="section-title">The Couple</h2>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot" style="background:var(--blue);"></div>
+    <div class="divider-dot" style="background:var(--pink);"></div>
+    <div class="divider-dot" style="background:var(--yellow);"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="couple-wrap">
+    <div class="couple-card bride">
+      <div class="couple-avatar" onclick="document.getElementById('bride-upload').click()">
+        <input class="avatar-file" type="file" id="bride-upload" accept="image/*" onchange="loadAvatar(this,'bride-img')">
+        <div class="avatar-inner">
+          <img id="bride-img" src="" alt="" style="display:none;">
+          <svg id="bride-placeholder" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a0b0" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <div class="avatar-upload-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Add photo
+          </div>
+        </div>
+      </div>
+      <div class="couple-info">
+        <div class="couple-nickname">Kaowfang</div>
+        <div class="couple-fullname-th">Wachiraporn Attawut</div>
+        <div class="couple-fullname-en">Wachiraporn Attawut</div>
+        <span class="couple-role">Bride</span>
+      </div>
+    </div>
+
+    <div class="couple-card groom">
+      <div class="couple-avatar" onclick="document.getElementById('groom-upload').click()">
+        <input class="avatar-file" type="file" id="groom-upload" accept="image/*" onchange="loadAvatar(this,'groom-img')">
+        <div class="avatar-inner">
+          <img id="groom-img" src="" alt="" style="display:none;">
+          <svg id="groom-placeholder" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#90b8d0" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <div class="avatar-upload-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Add photo
+          </div>
+        </div>
+      </div>
+      <div class="couple-info">
+        <div class="couple-nickname">Hernfah</div>
+        <div class="couple-fullname-th">Nantawut Harngorkit</div>
+        <div class="couple-fullname-en">Nantawut Harngorkit</div>
+        <span class="couple-role">Groom</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COUNTDOWN ═══ -->
+<div style="padding:0 24px;" class="reveal">
+  <div class="countdown-section">
+    <p class="section-label">Counting down to</p>
+    <h2 class="section-title" style="margin-bottom:0;">Countdown</h2>
+
+    <div class="countdown-big">
+      <div class="countdown-days-num" id="cd-days">—</div>
+      <div class="countdown-days-label">Days to go</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCHEDULE ═══ -->
+<section class="reveal">
+  <p class="section-label">Order of the Day</p>
+  <h2 class="section-title">Schedule</h2>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot" style="background:var(--orange);"></div>
+    <div class="divider-dot" style="background:var(--lilac);"></div>
+    <div class="divider-dot" style="background:var(--mint);"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="schedule-card">
+    <div class="schedule-row">
+      <div class="schedule-dot-col">
+        <div class="schedule-dot" style="background:var(--blue);"></div>
+        <div class="schedule-line"></div>
+      </div>
+      <div class="schedule-time">14:00</div>
+      <div class="schedule-content">
+        <div class="schedule-title">Guest Welcome</div>
+        <div class="schedule-desc">Welcome · Registration & program</div>
+      </div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-dot-col">
+        <div class="schedule-dot" style="background:var(--pink);"></div>
+        <div class="schedule-line"></div>
+      </div>
+      <div class="schedule-time">14:30</div>
+      <div class="schedule-content">
+        <div class="schedule-title">Vow Ceremony</div>
+        <div class="schedule-desc">Vow Ceremony · Exchange of vows</div>
+      </div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-dot-col">
+        <div class="schedule-dot" style="background:var(--yellow);"></div>
+        <div class="schedule-line"></div>
+      </div>
+      <div class="schedule-time">15:30</div>
+      <div class="schedule-content">
+        <div class="schedule-title">Group Photo</div>
+        <div class="schedule-desc">Group Photo · Capture memories together</div>
+      </div>
+    </div>
+
+    <div class="schedule-row">
+      <div class="schedule-dot-col">
+        <div class="schedule-dot" style="background:var(--mint);"></div>
+      </div>
+      <div class="schedule-time">16:00</div>
+      <div class="schedule-content">
+        <div class="schedule-title">Reception</div>
+        <div class="schedule-desc">Reception · Dinner & celebration</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VENUE ═══ -->
+<section class="reveal">
+  <p class="section-label">Where to find us</p>
+  <h2 class="section-title">Venue</h2>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot" style="background:var(--pink);"></div>
+    <div class="divider-dot" style="background:var(--blue);"></div>
+    <div class="divider-dot" style="background:var(--orange);"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="venue-card">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.749859728055!2d98.97425347479441!3d18.764706961672097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da306433d42dd5%3A0x34bd859c56e9723b!2sThe%20Acts%20Church%20of%20Chiang%20Mai!5e0!3m2!1sen!2sth!4v1772642450292!5m2!1sen!2sth" width="100%" height="220" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="venue-info">
+      <div class="venue-name-th">The Acts Church of Chiang Mai</div>
+      <div class="venue-name-en">The Acts Church of Chiang Mai</div>
+      <div class="venue-detail">
+        <div class="venue-detail-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Saturday, 2 May 2026
+        </div>
+        <div class="venue-detail-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Ceremony starts 2:30 PM
+        </div>
+        <div class="venue-detail-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Chiang Mai
+        </div>
+      </div>
+      <a href="https://maps.google.com" target="_blank" class="map-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+        Get Directions
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PALETTE ═══ -->
+<div class="palette-section reveal">
+  <p class="section-label" style="margin-bottom:24px;">Wedding Color Palette</p>
+  <div class="palette-dots">
+    <div class="palette-dot" style="background:var(--blue);"></div>
+    <div class="palette-dot" style="background:var(--orange);"></div>
+    <div class="palette-dot" style="background:var(--pink);"></div>
+    <div class="palette-dot" style="background:var(--lilac);"></div>
+    <div class="palette-dot" style="background:var(--yellow);"></div>
+    <div class="palette-dot" style="background:var(--mint);"></div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="reveal">
+  <div class="footer-hearts">
+    <span style="color:var(--blue);">♡</span>
+    <span style="color:var(--pink);">♡</span>
+    <span style="color:var(--yellow);">♡</span>
+    <span style="color:var(--mint);">♡</span>
+    <span style="color:var(--lilac);">♡</span>
+  </div>
+  <p class="footer-text">Kaowfang & Hernfah</p>
+  <p class="footer-date">02 · 05 · 2026</p>
+</footer>
+
+<script>
+// ── Avatar upload ──
+function loadAvatar(input, imgId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = document.getElementById(imgId);
+    img.src = e.target.result;
+    img.style.display = 'block';
+    // hide placeholder svg
+    const placeholder = imgId === 'bride-img' ? document.getElementById('bride-placeholder') : document.getElementById('groom-placeholder');
+    if (placeholder) placeholder.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── Countdown (days only) ──
+function updateCountdown() {
+  const target = new Date('2026-05-02T14:30:00');
+  const now = new Date();
+  const diff = target - now;
+  const d = diff <= 0 ? 0 : Math.ceil(diff / 86400000);
+  document.getElementById('cd-days').textContent = d;
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+
+// ── Glitter canvas ──
+const canvas = document.getElementById('glitter');
+const ctx = canvas.getContext('2d');
+const glitters = [];
+const colors = ['#A8C8E8','#F2B78B','#F0A0B0','#C8B0D8','#F5D890','#A8D8C0','#ffffff'];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+for (let i = 0; i < 60; i++) {
+  glitters.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * -window.innerHeight,
+    size: 2 + Math.random() * 4,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    speed: 0.5 + Math.random() * 1.5,
+    drift: (Math.random() - 0.5) * 0.5,
+    opacity: Math.random(),
+    twinkle: Math.random() * Math.PI * 2,
+    rotation: Math.random() * Math.PI * 2,
+    rotSpeed: (Math.random() - 0.5) * 0.05,
+  });
+}
+
+function drawGlitter() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  glitters.forEach(g => {
+    g.y += g.speed;
+    g.x += g.drift;
+    g.twinkle += 0.05;
+    g.rotation += g.rotSpeed;
+    const alpha = (Math.sin(g.twinkle) * 0.3 + 0.5) * g.opacity;
+    if (g.y > canvas.height + 10) {
+      g.y = -10;
+      g.x = Math.random() * canvas.width;
+    }
+    ctx.save();
+    ctx.translate(g.x, g.y);
+    ctx.rotate(g.rotation);
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = g.color;
+    // diamond shape
+    ctx.beginPath();
+    ctx.moveTo(0, -g.size);
+    ctx.lineTo(g.size * 0.5, 0);
+    ctx.lineTo(0, g.size);
+    ctx.lineTo(-g.size * 0.5, 0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  });
+  requestAnimationFrame(drawGlitter);
+}
+drawGlitter();
+
+// ── Scroll reveal ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
