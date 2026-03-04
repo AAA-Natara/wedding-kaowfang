@@ -164,8 +164,7 @@
   }
   .photo-frame {
     width: 100%;
-    aspect-ratio: unset;
-    height: 100vh;
+    aspect-ratio: 3/4;
     border-radius: 32px;
     overflow: hidden;
     position: relative;
@@ -583,6 +582,59 @@
   .bride .couple-role { background: linear-gradient(135deg, var(--pink), var(--lilac)); }
   .groom .couple-role { background: linear-gradient(135deg, var(--blue), var(--mint)); }
 
+  /* ─── SCRIPTURE ─── */
+  .scripture-card {
+    background: white;
+    border-radius: 24px;
+    padding: 36px 32px;
+    box-shadow: 0 4px 40px rgba(180,140,130,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .scripture-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pink), var(--lilac), var(--blue), var(--mint), var(--yellow));
+  }
+  .scripture-verse {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f5ede8;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+  .scripture-verse:last-of-type { border-bottom: none; }
+  .scripture-verse.highlight {
+    background: linear-gradient(135deg, #fdf0f8, #f0f5fd);
+    margin: 8px -32px -36px;
+    padding: 16px 32px;
+    border-bottom: none;
+    border-radius: 0 0 24px 24px;
+  }
+  .verse-num {
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+    color: var(--pink);
+    min-width: 22px;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+  .scripture-ref {
+    text-align: right;
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 20px;
+    letter-spacing: 0.1em;
+  }
+
   /* ─── FOOTER ─── */
   footer {
     text-align: center;
@@ -663,10 +715,7 @@
 <!-- ═══ PHOTO ═══ -->
 <div class="photo-section reveal">
   <div class="photo-frame">
-    <div class="photo-placeholder">
-      
-      <img src="https://worshipnight.life/event/KF.jpg" style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
+    <img src="https://worshipnight.life/event/KF.jpg" alt="Kaowfang & Hernfah" style="width:100%;height:100%;object-fit:cover;display:block;">
     <div class="photo-frame-label">Kaowfang & Hernfah · 02.05.2026</div>
   </div>
 </div>
@@ -698,7 +747,7 @@
       </div>
       <div class="couple-info">
         <div class="couple-nickname">Kaowfang</div>
-        <div class="couple-fullname-th">Wachiraporn Attawut</div>
+        <div class="couple-fullname-th">วชิราภรณ์ อัตวุฒิ</div>
         <div class="couple-fullname-en">Wachiraporn Attawut</div>
         <span class="couple-role">Bride</span>
       </div>
@@ -718,7 +767,7 @@
       </div>
       <div class="couple-info">
         <div class="couple-nickname">Hernfah</div>
-        <div class="couple-fullname-th">Nantawut Harngorkit</div>
+        <div class="couple-fullname-th">นันทวุฒิ หาญก่อกิจ</div>
         <div class="couple-fullname-en">Nantawut Harngorkit</div>
         <span class="couple-role">Groom</span>
       </div>
@@ -842,7 +891,7 @@
 
 <!-- ═══ PALETTE ═══ -->
 <div class="palette-section reveal">
-  <p class="section-label" style="margin-bottom:24px;">Wedding Color Palette</p>
+  <p class="section-label" style="margin-bottom:12px;">A Palette of All Colors</p>
   <div class="palette-dots">
     <div class="palette-dot" style="background:var(--blue);"></div>
     <div class="palette-dot" style="background:var(--orange);"></div>
@@ -852,6 +901,67 @@
     <div class="palette-dot" style="background:var(--mint);"></div>
   </div>
 </div>
+
+<!-- ═══ SCRIPTURE ═══ -->
+<section class="reveal" style="padding-top:0;">
+  <p class="section-label">John 2 : 1–11</p>
+  <h2 class="section-title">The Wedding at Cana</h2>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot" style="background:var(--pink);"></div>
+    <div class="divider-dot" style="background:var(--lilac);"></div>
+    <div class="divider-dot" style="background:var(--blue);"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="scripture-card">
+    <div class="scripture-verse">
+      <span class="verse-num">1</span>
+      <span>On the third day a wedding took place at Cana in Galilee. Jesus' mother was there,</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">2</span>
+      <span>and Jesus and his disciples had also been invited to the wedding.</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">3</span>
+      <span>When the wine was gone, Jesus' mother said to him, "They have no more wine."</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">4</span>
+      <span>"Woman, why do you involve me?" Jesus replied. "My hour has not yet come."</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">5</span>
+      <span>His mother said to the servants, "Do whatever he tells you."</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">6</span>
+      <span>Nearby stood six stone water jars, the kind used by the Jews for ceremonial washing, each holding from twenty to thirty gallons.</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">7</span>
+      <span>Jesus said to the servants, "Fill the jars with water"; so they filled them to the brim.</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">8</span>
+      <span>Then he told them, "Now draw some out and take it to the master of the banquet." They did so,</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">9</span>
+      <span>and the master of the banquet tasted the water that had been turned into wine. He did not realize where it had come from, though the servants who had drawn the water knew. Then he called the bridegroom aside</span>
+    </div>
+    <div class="scripture-verse">
+      <span class="verse-num">10</span>
+      <span>and said, "Everyone brings out the choice wine first and then the cheaper wine after the guests have had too much to drink; but you have saved the best till now."</span>
+    </div>
+    <div class="scripture-verse highlight">
+      <span class="verse-num">11</span>
+      <span>What Jesus did here in Cana of Galilee was the first of the signs through which he revealed his glory; and his disciples believed in him.</span>
+    </div>
+    <div class="scripture-ref">— John 2:1–11 (NIV)</div>
+  </div>
+</section>
 
 <!-- ═══ FOOTER ═══ -->
 <footer class="reveal">
